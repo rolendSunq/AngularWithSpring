@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping(value = "/angularjs/")
@@ -19,7 +20,13 @@ public class Chapter10Controller {
 
 	@RequestMapping(value="app10-2", name="chapter 10-2")
 	public String getApp10Dash2(Model model) {
-		logger.debug("getApp10Dash1");
+		logger.debug("getApp10Dash2");
 		return "chapter10/app10-2";
+	}
+
+	@RequestMapping(value="app10-4", method=RequestMethod.GET, name="chapter 10-4")
+	public String getApp10Dash4(Model model) {
+		logger.debug("getApp10Dash4");
+		return "chapter10/app10-4";
 	}
 }
