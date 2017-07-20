@@ -5,7 +5,7 @@
 <html lang="ko" ng-app="exampleApp">
 	<head>
 		<meta charset="UTF-8">
-		<title>Chapter 10-5</title>
+		<title>Chapter 10-6</title>
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular.js"></script>
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/controllers/chapter10-2Controller.js"></script>
 		<link href="<c:out value="${myContextPath}"/>/resources/angularjs/bootstrap.css" rel="stylesheet" />
@@ -13,17 +13,17 @@
 	</head>
 	<body>
 		<div class="panel">
-			<h3>객체 속성 반복</h3>
+			<h3 class="panel-header">데이터 객체 키 활용</h3>
 			<pre>
-				ng-repeat 는 객체 속성을 반복할 수도 있다. 또한 계층적으로 중첩해 사용할 수도 있다.
+				처리되는 각 속성이나 데이터 객체의 키를 가져올 수 있는 ng-repeat 디렉티브 설정에 대해 대체 구문이 존재한다.
 				<tbody>
 					<tr ng-repeat="item in todos">
-						<td ng-repeat="prop in item">{{prop}}</td>
+						<td ng-repeat="(key, value) in item">{{key}}={{value}}</td>
 					</tr>
 				</tbody>
-				tr에 ng-repeat 디렉티브를 사용하여 tr 엘리먼트를 생성한다. 각 객체는 item 변수로 대입된다.
-				tr의 자식 노드인 td 는 tr 엘리먼트와 같이 item 변수의 속성 별로 td 엘리먼트를 생성한다.
-				td의 콘텐츠는 단방향 데이터 바인딩을 사용하여 속성에 대한 콘텐츠가 표시된다.
+				td 엘리먼트의 속성에서 ng-repeat 디렉티브에 사용된 속성에서 단일 변수명 대신 괄호안에 2개의 변수를 사용하였고 구분을 ','를 사용하였다.
+				첫 번째 변수 key는 순회하는 디렉티브의 객체의 속성이 대입되며, 두번째 변수 value는 객체 속성의 값이 대입된다.
+				이러한 구성 방식이 적용된 모든 객체에 반드시 적용되는 것은 아니며 객체의 구성 방식에 따라 변할 수 있다. 
 			</pre>
 		</div>
 		<div id="todoPanel" class="panel" ng-controller="defaultCtrl">
@@ -37,7 +37,7 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="item in todos">
-						<td ng-repeat="prop in item">{{prop}}</td>
+						<td ng-repeat="(key, value) in item">{{key}}={{value}}</td>
 					</tr>
 				</tbody>
 			</table>
