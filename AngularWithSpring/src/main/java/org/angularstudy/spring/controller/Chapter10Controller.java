@@ -29,4 +29,17 @@ public class Chapter10Controller {
 		logger.debug("getApp10Dash3");
 		return "chapter10/app10-3";
 	}
+
+	@RequestMapping(value="app10-4", method=RequestMethod.GET, name="chapter 10-4")
+	public String getApp10Dash4(Model model) {
+		logger.debug("getApp10Dash4");
+		return "chapter10/app10-4";
+	}
+
+	@RequestMapping(value="app10-5", method=RequestMethod.GET, name="chapter 10-5")
+	public String getApp10Dash5(Model model) {
+		logger.debug("getApp10Dash5");
+		return "chapter10/app10-5";
+	}
+
 }
