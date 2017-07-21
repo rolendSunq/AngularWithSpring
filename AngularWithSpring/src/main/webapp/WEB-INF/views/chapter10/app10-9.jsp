@@ -5,7 +5,7 @@
 <html lang="ko" ng-app="exampleApp">
 	<head>
 		<meta charset="UTF-8">
-		<title>Chapter 10-8</title>
+		<title>Chapter 10-9</title>
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular.js"></script>
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/controllers/chapter10-2Controller.js"></script>
 		<link href="<c:out value="${myContextPath}"/>/resources/angularjs/bootstrap.css" rel="stylesheet" />
@@ -16,42 +16,6 @@
 	    </style>
 	</head>
 	<body>
-		<div class="panel">
-			<table class="table">
-				<thead>
-					<tr>
-						<td>변수</td>
-						<td>설명</td>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>$index</td>
-						<td>현재 객체나 속성의 위치를 반환한다.</td>
-					</tr>
-					<tr>
-						<td>$first</td>
-						<td>현재 객체가 컬렉션 내 첫 번째 객체이면 true를 반환한다.</td>
-					</tr>
-					<tr>
-						<td>$middle</td>
-						<td>현재 객체가 컬렉션 내 첫 번째나 마지막 객체가 아니면 true를 반환한다.</td>
-					</tr>
-					<tr>
-						<td>$last</td>
-						<td>현재 객체가 컬렉션 내 마지막 객체이면 true를 반환한다.</td>
-					</tr>
-					<tr>
-						<td>$even</td>
-						<td>현재 객체가 컬렉션 내 짝수 번째 객체이면 true를 반환한다.</td>
-					</tr>
-					<tr>
-						<td>$odd</td>
-						<td>현재 객체가 컬렉션 내 홀수 번째 객체이면 true를 반환한다.</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
 		<div id="todoPanel" class="panel" ng-controller="defaultCtrl">
 			<h3 class="panel-header">To Do List</h3>
 			<table class="table">
@@ -65,10 +29,17 @@
 				<tbody>
 					<tr ng-repeat="item in todos" ng-class="$odd ? 'odd' : 'even'">
 						<td>{{$index + 1}}</td>
-						<td ng-repeat="prop in item">{{prop}}</td>
+						<td>{{item.action}}</td>
+						<td><span ng-if="$first || $last">{{item.complete}}</span></td>
 					</tr>
 				</tbody>
 			</table>
+			<div class="panel">
+				<pre>
+					ng-if 디렉티브: 엘리먼트가 false 인 경우 엘리먼트를 제거한다.
+					span 엘리먼트를 제어하여 첫 엘리먼트와 마지막 엘리먼트 항목만 표시되었다.
+				</pre>
+			</div>
 		</div>
 	</body>
 </html>

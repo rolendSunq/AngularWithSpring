@@ -50,8 +50,26 @@ public class Chapter10Controller {
 	
 	@RequestMapping(value="app10-7", method=RequestMethod.GET, name="chapter 10-7")
 	public String getApp10Dash7(Model model) {
-		logger.debug("getApp10Dash6");
+		logger.debug("getApp10Dash7");
 		return "chapter10/app10-7";
+	}
+	
+	@RequestMapping(value="app10-8", method=RequestMethod.GET, name="chapter 10-8")
+	public String getApp10Dash8(Model model) {
+		logger.debug("getApp10Dash8");
+		return "chapter10/app10-8";
+	}
+	
+	@RequestMapping(value="app10-9", method=RequestMethod.GET, name="chapter 10-9")
+	public String getApp10Dash9(Model model) {
+		logger.debug("getApp10Dash9");
+		return "chapter10/app10-9";
+	}
+	
+	@RequestMapping(value="app10-10", method=RequestMethod.GET, name="chapter 10-10")
+	public String getApp10Dash10(Model model) {
+		logger.debug("getApp10Dash10");
+		return "chapter10/app10-10";
 	}
 
 }
