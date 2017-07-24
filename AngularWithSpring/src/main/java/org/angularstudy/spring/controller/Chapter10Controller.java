@@ -71,5 +71,35 @@ public class Chapter10Controller {
 		logger.debug("getApp10Dash10");
 		return "chapter10/app10-10";
 	}
+	
+	@RequestMapping(value="app10-12", method=RequestMethod.GET, name="chapter 10-12")
+	public String getApp10Dash12(Model model) {
+		logger.debug("getApp10Dash12");
+		return "chapter10/app10-12";
+	}
+	
+	@RequestMapping(value="app10-13", method=RequestMethod.GET, name="chapter 10-13")
+	public String getApp10Dash13(Model model) {
+		logger.debug("getApp10Dash13");
+		return "chapter10/app10-13";
+	}
+	
+	@RequestMapping(value="app10-15", method=RequestMethod.GET, name="chapter 10-15")
+	public String getApp10Dash15(Model model) {
+		logger.debug("getApp10Dash15");
+		return "chapter10/app10-15";
+	}
+	
+	@RequestMapping(value="app10-17", method=RequestMethod.GET, name="chapter 10-17")
+	public String getApp10Dash17(Model model) {
+		logger.debug("getApp10Dash17");
+		return "chapter10/app10-17";
+	}
+	
+	@RequestMapping(value="app10-18", method=RequestMethod.GET, name="chapter 10-18")
+	public String getApp10Dash18(Model model) {
+		logger.debug("getApp10Dash18");
+		return "chapter10/app10-18";
+	}
 
 }
