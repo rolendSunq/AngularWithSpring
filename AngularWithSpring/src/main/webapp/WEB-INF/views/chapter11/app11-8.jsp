@@ -21,7 +21,7 @@
 			<h3 class="panel-header">To Do List</h3>
 			<div class="well">
 				<span ng-repeat="button in buttonNames">
-					<button class="btn btn-info" ng-click="data.rowColor">{{button}}</button>
+					<button class="btn btn-info" ng-click="data.rowColor = button">{{button}}</button>
 				</span>
 			</div>
 			<table class="table">
