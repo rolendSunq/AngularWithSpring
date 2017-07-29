@@ -5,7 +5,7 @@
 <html lang="ko" ng-app="exampleApp">
 	<head>
 		<meta charset="UTF-8">
-		<title>Chapter 10-5</title>
+		<title>Chapter 10-7</title>
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular.js"></script>
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/controllers/chapter10-2Controller.js"></script>
 		<link href="<c:out value="${myContextPath}"/>/resources/angularjs/bootstrap.css" rel="stylesheet" />
@@ -13,17 +13,11 @@
 	</head>
 	<body>
 		<div class="panel">
-			<h3>객체 속성 반복</h3>
+			<h3 class="panel-header">내장 변수 활용</h3>
 			<pre>
-				ng-repeat 는 객체 속성을 반복할 수도 있다. 또한 계층적으로 중첩해 사용할 수도 있다.
-				<tbody>
-					<tr ng-repeat="item in todos">
-						<td ng-repeat="prop in item">{{prop}}</td>
-					</tr>
-				</tbody>
-				tr에 ng-repeat 디렉티브를 사용하여 tr 엘리먼트를 생성한다. 각 객체는 item 변수로 대입된다.
-				tr의 자식 노드인 td 는 tr 엘리먼트와 같이 item 변수의 속성 별로 td 엘리먼트를 생성한다.
-				td의 콘텐츠는 단방향 데이터 바인딩을 사용하여 속성에 대한 콘텐츠가 표시된다.
+				$index 변수는 ng-repeat 디렉티브에서 배열 내 각 항목의 위치를 알려주기 위해 제공하는 내장 변수다.
+				자바스크립트 컬렉션 인덱스는 최초 값이 0으로 시작한다. AngularJS에서 데이터 바인딩은 자바스크립트 컬렉션 기반으로 표현식을 해석한다.
+				따라서 $index + 1 을 추가한 예를 볼 수있다.
 			</pre>
 		</div>
 		<div id="todoPanel" class="panel" ng-controller="defaultCtrl">
@@ -31,12 +25,14 @@
 			<table class="table">
 				<thead>
 					<tr>
+						<th>#</th>
 						<th>Action</th>
 						<th>Done</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr ng-repeat="item in todos">
+						<td>{{$index + 1}}</td>
 						<td ng-repeat="prop in item">{{prop}}</td>
 					</tr>
 				</tbody>

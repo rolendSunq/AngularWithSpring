@@ -9,6 +9,8 @@
 	<classpath>
 		<dir name="C:/Users/Administrator/git/AngularWithSpring/AngularWithSpring/target/classes">
 		</dir>
+		<dir name="C:/Users/Administrator/git/AngularWithSpring/AngularWithSpring/target/test-classes">
+		</dir>
 	</classpath>
 
 	<web>
