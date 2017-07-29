@@ -17,7 +17,7 @@
 	    </style>
 	</head>
 	<body>
-		<div id="todoPanel" class="panel" ng-contoller="defaultCtrl">
+		<div id="todoPanel" class="panel" ng-controller="defaultCtrl">
 			<h3 class="panel-header">To Do List</h3>
 			<div class="well">
 				<span ng-repeat="button in buttonNames">
