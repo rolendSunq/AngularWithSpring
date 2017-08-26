@@ -53,4 +53,17 @@ public class Chapter11Controller {
 		logger.debug("getApp11Dash8");
 		return "chapter11/app11-8";
 	}
+	
+	@RequestMapping(value="app11-9", method=RequestMethod.GET, name="chapter 11-9")
+	public String getApp11Dash9(Model model) {
+		logger.debug("getApp11Dash9");
+		return "chapter11/app11-9";
+	}
+
+	@RequestMapping(value="app11-10", method=RequestMethod.GET, name="chapter 11-10")
+	public String getApp11Dash10(Model model) {
+		logger.debug("getApp11Dash10");
+		return "chapter11/app11-10";
+	}
+
 }
