@@ -48,4 +48,46 @@ public class Chapter13Controller {
 		return "chapter13/app13-6";
 	}
 
+	@RequestMapping(value="app13-8", method=RequestMethod.GET, name="chapter 13-8")
+	public String getApp13Dash8(Model model) {
+		logger.debug("getApp13Dash8");
+		return "chapter13/app13-8";
+	}
+
+	@RequestMapping(value="app13-9", method=RequestMethod.GET, name="chapter 13-9")
+	public String getApp13Dash9(Model model) {
+		logger.debug("getApp13Dash9");
+		return "chapter13/app13-9";
+	}
+
+	@RequestMapping(value="app13-13", method=RequestMethod.GET, name="chapter 13-13")
+	public String getApp13Dash13(Model model) {
+		logger.debug("getApp13Dash13");
+		return "chapter13/app13-13";
+	}
+
+	@RequestMapping(value="app13-14", method=RequestMethod.GET, name="chapter 13-14")
+	public String getApp13Dash14(Model model) {
+		logger.debug("getApp13Dash14");
+		return "chapter13/app13-14";
+	}
+
+	@RequestMapping(value="app13-15", method=RequestMethod.GET, name="chapter 13-15")
+	public String getApp13Dash15(Model model) {
+		logger.debug("getApp13Dash15");
+		return "chapter13/app13-15";
+	}
+
+	@RequestMapping(value="app13-16", method=RequestMethod.GET, name="chapter 13-16")
+	public String getApp13Dash16(Model model) {
+		logger.debug("getApp13Dash16");
+		return "chapter13/app13-16";
+	}
+
+	@RequestMapping(value="app13-17", method=RequestMethod.GET, name="chapter 13-17")
+	public String getApp13Dash17(Model model) {
+		logger.debug("getApp13Dash17");
+		return "chapter13/app13-17";
+	}
+
 }

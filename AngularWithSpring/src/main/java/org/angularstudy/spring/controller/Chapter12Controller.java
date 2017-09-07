@@ -11,19 +11,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/angularjs/")
 public class Chapter12Controller {
 	private static final Logger logger  = LoggerFactory.getLogger(Chapter12Controller.class);
-	
+
 	@RequestMapping(value="app12-1", method=RequestMethod.GET, name="chapter 12-1")
 	public String getApp12Dash1(Model model) {
 		logger.debug("getApp12Dash1");
 		return "chapter12/app12-1";
 	}
-	
+
 	@RequestMapping(value="app12-2", method=RequestMethod.GET, name="chapter 12-2")
 	public String getApp12Dash2(Model model) {
 		logger.debug("getApp12Dash2");
 		return "chapter12/app12-2";
 	}
-	
+
 	@RequestMapping(value="app12-3", method=RequestMethod.GET, name="chapter 12-3")
 	public String getApp12Dash3(Model model) {
 		logger.debug("getApp12Dash3");
@@ -40,5 +40,17 @@ public class Chapter12Controller {
 	public String getApp12Dash5(Model model) {
 		logger.debug("getApp12Dash5");
 		return "chapter12/app12-5";
+	}
+
+	@RequestMapping(value="app12-6", method=RequestMethod.GET, name="chapter 12-6")
+	public String getApp12Dash6(Model model) {
+		logger.debug("getApp12Dash6");
+		return "chapter12/app12-6";
+	}
+
+	@RequestMapping(value="app12-8", method=RequestMethod.GET, name="chapter 12-8")
+	public String getApp12Dash8(Model model) {
+		logger.debug("getApp12Dash8");
+		return "chapter12/app12-8";
 	}
 }
