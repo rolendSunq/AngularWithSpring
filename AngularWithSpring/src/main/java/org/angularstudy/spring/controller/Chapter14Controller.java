@@ -71,4 +71,34 @@ public class Chapter14Controller {
 		logger.debug("getApp14Dash14");
 		return "chapter14/app14-14";
 	}
+
+	@RequestMapping(value="app14-16", method=RequestMethod.GET, name="Chapter 14-16")
+	public String getApp14Dash16(Model model) {
+		logger.debug("getApp14Dash16");
+		return "chapter14/app14-16";
+	}
+
+	@RequestMapping(value="app14-17", method=RequestMethod.GET, name="Chapter 14-17")
+	public String getApp14Dash17(Model model) {
+		logger.debug("getApp14Dash17");
+		return "chapter14/app14-17";
+	}
+
+	@RequestMapping(value="app14-19", method=RequestMethod.GET, name="Chapter 14-19")
+	public String getApp14Dash19(Model model) {
+		logger.debug("getApp14Dash19");
+		return "chapter14/app14-19";
+	}
+
+	@RequestMapping(value="app14-22", method=RequestMethod.GET, name="Chapter 14-22")
+	public String getApp14Dash22(Model model) {
+		logger.debug("getApp14Dash22");
+		return "chapter14/app14-22";
+	}
+
+	@RequestMapping(value="app14-24", method=RequestMethod.GET, name="Chapter 14-24")
+	public String getApp14Dash24(Model model) {
+		logger.debug("getApp14Dash24");
+		return "chapter14/app14-24";
+	}
 }

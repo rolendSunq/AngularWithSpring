@@ -14,15 +14,4 @@ app.controller('defaultCtrl', function($scope) {
 		{name:'Wine', category:'Drinks', price:8.99, expiry:365},
 		{name:'Whiskey', category:'Drinks', price:45.99, expiry:365}
 	];
-	$scope.limitVal = '5';
-	$scope.limitRange = [];
-	for (var i = (0 - $scope.products.length); i <= $scope.products.length; i++) {
-		$scope.limitRange.push(i.toString());
-	};
-	$scope.selectItems = function(item) {
-		return item.category == 'Fish' || item.name == 'Beer';
-	};
-	$scope.myCustomSorter = function(item) {
-		return item.expiry < 5 ? 0 : item.price;
-	};
 });
