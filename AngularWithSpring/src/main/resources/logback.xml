@@ -9,4 +9,9 @@
 	<logger name="jdbc.resultset" level="ERROR"/>
 	<logger name="jdbc.resultsettable" level="ERROR"/>
 	<logger name="jdbc.connection" level="INFO"/>
+	<logger name="sonegy.slf4j.sample" level="INFO"></logger>
+    <logger name="org.springframework.context" level="DEBUG"></logger>
+    <root level="debug">
+        <appender-ref ref="STDOUT" />
+    </root>
 </configuration>
