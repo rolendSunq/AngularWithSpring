@@ -23,6 +23,7 @@ public class AngularController {
 
 	@RequestMapping(value="app16-{[1-9]+}", method=RequestMethod.GET, name="app16")
 	public String getApp16(Model model, HttpServletRequest request) {
+		logger.debug("app16");
 		logger.info("params::::" + request.getRequestURI());
 
 		return "chapter16/app16-" + getTargetUrl(request.getRequestURL().toString());
