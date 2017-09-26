@@ -20,7 +20,6 @@ public class AngularController {
 		return getTargetUrl(request.getRequestURI().toString());
 	}
 
-
 	private String getTargetUrl(String urls) {
 		String[] tempArrString = urls.split("\\D+");
 		StringBuffer sb = new StringBuffer();
