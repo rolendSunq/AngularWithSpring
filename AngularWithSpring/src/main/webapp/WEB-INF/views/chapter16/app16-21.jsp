@@ -7,19 +7,19 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Chapter 16-19</title>
+		<title>Chapter 16-20</title>
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular.js"></script>
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/controllers/chapter16-19Controller.js"></script>
-		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/directive/chapter16-19Directive.js"></script>
+		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/directive/chapter16-21Directive.js"></script>
 		<link href="<c:out value="${myContextPath}"/>/resources/angularjs/bootstrap.css" rel="stylesheet" />
 	    <link href="<c:out value="${myContextPath}"/>/resources/angularjs/bootstrap-theme.css" rel="stylesheet" />
 	</head>
 	<body ng-controller="scopeCtrl">
 		<div class="panel panel-default">
-			<div class="panel panel-default">
-				<div class="panel-body" scope-demo></div>
-				<div class="panel-body" scope-demo></div>
+			<div class="panel-body">
+				Direct Binding: <input class="form-control" ng-model="data.name"/>
 			</div>
+			<div class="panel-body" scope-demo nameprop="{{data.name}}"></div>
 		</div>
 	</body>
 </html>
