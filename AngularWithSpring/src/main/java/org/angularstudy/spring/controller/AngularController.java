@@ -14,23 +14,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AngularController {
 	private static final Logger logger = LoggerFactory.getLogger(AngularController.class);
 
-	@RequestMapping(value="app15-{[1-9]+}", method=RequestMethod.GET, name="app15")
+	@RequestMapping(value="app{[1-9]+}-{[1-9]+}", method=RequestMethod.GET, name="app15")
 	public String getApp15(Model model, HttpServletRequest request) {
 		logger.info("params::::" + request.getRequestURI());
-
-		return "chapter15/app15-" + getTargetUrl(request.getRequestURL().toString());
+		return getTargetUrl(request.getRequestURI().toString());
 	}
 
-	@RequestMapping(value="app16-{[1-9]+}", method=RequestMethod.GET, name="app16")
-	public String getApp16(Model model, HttpServletRequest request) {
-		logger.debug("app16");
-		logger.info("params::::" + request.getRequestURI());
-
-		return "chapter16/app16-" + getTargetUrl(request.getRequestURL().toString());
-	}
 
 	private String getTargetUrl(String urls) {
-		String[] tempArrString = urls.split("-");
-		return tempArrString[1];
+		String[] tempArrString = urls.split("\\D+");
+		StringBuffer sb = new StringBuffer();
+		sb.append("chapter").append(tempArrString[1]).append("/app").append(tempArrString[1]).append("-").append(tempArrString[2]);
+		return sb.toString();
 	}
 }
