@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class TemplateController {
 	private static final Logger logger = LoggerFactory.getLogger(TemplateController.class);
 
-	@RequestMapping(value="template/{[a-z|A-Z]*}", method=RequestMethod.GET, name="template")
+	@RequestMapping(value="template/{(a-z|A-Z|0-9)*}", method=RequestMethod.GET, name="template")
 	public String getApp14(Model model, HttpServletRequest request) {
 		logger.info("params::::" + request.getRequestURI());
 
