@@ -15,19 +15,35 @@
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular-sanitize.min.js"></script>
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular-touch.min.js"></script>
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular-animate.min.js"></script>
-		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/services/customServices.js"></script>
-		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/directive/chapter18-5Directive.js"></script>
-		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/controllers/chapter18-7Controller.js"></script>
+		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/controllers/chapter20-2Controller.js"></script>
 		<link href="<c:out value="${myContextPath}"/>/resources/angularjs/bootstrap.css" rel="stylesheet" />
 	    <link href="<c:out value="${myContextPath}"/>/resources/angularjs/bootstrap-theme.css" rel="stylesheet" />
-		<title>Chapter 18-7</title>
+		<title>Chapter 20-2</title>
 	</head>
 	<body ng-controller="defaultCtrl">
-		<div class="well">
-			<div class="btn-group" tri-button counter="data.totalClicks" source="data.cities">
-				<button class="btn btn-default" ng-repeat="city in data.cities">{{city}}</button>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<table class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Category</th>
+							<th>Price</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-hide="products.length">
+							<td colspan="3" class="text-center">No Data</td>
+						</tr>
+						<tr ng-repeat="item in products">
+							<td>{{name}}</td>
+							<td>{{category}}</td>
+							<td>{{price | currency}}</td>
+						</tr>
+					</tbody>
+				</table>
+				<p><button class="btn btn-primary" ng-click="loadData()">Load Data</button></p>
 			</div>
-			<h5>Total Clicks:{{data.totalClicks}}</h5>
 		</div>
 	</body>
 </html>
