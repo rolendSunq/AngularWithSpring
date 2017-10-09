@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AngularController {
 	private static final Logger logger = LoggerFactory.getLogger(AngularController.class);
 
-	@RequestMapping(value="app{[1-9]+}-{[1-9]+}", method=RequestMethod.GET, name="app15")
+	@RequestMapping(value="app{[1-9]+}-{[1-9]+}", method=RequestMethod.GET, name="app")
 	public String getApp15(Model model, HttpServletRequest request) {
 		logger.info("params::::" + request.getRequestURI());
 		return getTargetUrl(request.getRequestURI().toString());
