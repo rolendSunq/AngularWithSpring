@@ -36,9 +36,9 @@
 							<td colspan="3" class="text-center">No Data</td>
 						</tr>
 						<tr ng-repeat="item in products">
-							<td>{{name}}</td>
-							<td>{{category}}</td>
-							<td>{{price | currency}}</td>
+							<td>{{item.name}}</td>
+							<td>{{item.category}}</td>
+							<td>{{item.price | currency}}</td>
 						</tr>
 					</tbody>
 				</table>
