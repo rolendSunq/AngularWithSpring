@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="myContextPath" value="${pageContext.request.contextPath}"/>
+<!DOCTYPE html>
+<html lang="ko" ng-app="exampleApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>Chapter 11-9</title>
+		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular.js"></script>
+		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/controllers/chapter11-9Controller.js"></script>
+		<link href="<c:out value="${myContextPath}"/>/resources/angularjs/bootstrap.css" rel="stylesheet" />
+	    <link href="<c:out value="${myContextPath}"/>/resources/angularjs/bootstrap-theme.css" rel="stylesheet" />
+	    <style type="text/css">
+	    	.Red {background-color: lightcoral;}
+	    	.Green {background-color: lightgreen;}
+	    	.Blue {background-color: lightblue;}
+	    </style>
+	</head>
+	<body>
+		<div id="todoPanel" class="panel" ng-controller="defaultCtrl">
+			<div class="well" tap="message = 'Tapped!!'">
+				{{message}}
+			</div>
+		</div>
+	</body>
+</html>
