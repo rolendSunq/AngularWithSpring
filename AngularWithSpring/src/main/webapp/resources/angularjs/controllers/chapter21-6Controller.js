@@ -14,7 +14,13 @@ app.controller('defaultCtrl', function($scope, $http, baseUrl) {
 		});
 	};
 	$scope.deleteProduct = function(product) {
-		$scope.products.splice($scope.products.indexOf(product), 1);
+		$http({
+			method: 'DELETE',
+			url: baseUrl + '?id=' + product.id
+		}).then(function(msgObj) {
+			console.log(msgObj);
+			$scope.products.splice($scope.products.indexOf(product), 1);
+		});
 	};
 	$scope.createProduct = function(product) {
 		$scope.products.push(product);

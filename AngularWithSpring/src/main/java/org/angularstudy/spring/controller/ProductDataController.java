@@ -2,6 +2,7 @@ package org.angularstudy.spring.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.angularstudy.spring.services.ObjectToXml;
@@ -9,7 +10,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -98,5 +101,47 @@ public class ProductDataController {
 		logger.info("xml Object::::" + new ObjectToXml().executeObject());
 		return data;
 	}
+	
+	@RequestMapping("productsData")
+	public @ResponseBody String getProductsDataCtrl(Model model) throws Exception{
+		List<Map<String, Object>> list = new ArrayList<>();
+		Map<String, Object> map;
+		
+		for (int i = 0; i < 3; i++) {
+			map = new HashMap<>();
+			switch (i) {
+			case 0:
+				map.put("id", 0);
+				map.put("name", "Dummy1");
+				map.put("category", "Test");
+				map.put("price", 1.25);
+				break;
+			case 1:
+				map.put("id", 1);
+				map.put("name", "Dummy2");
+				map.put("category", "Test");
+				map.put("price", 2.45);
+				break;
+			case 2:
+				map.put("id", 3);
+				map.put("name", "Dummy3");
+				map.put("category", "Test");
+				map.put("price", 4.25);
+				break;
+			}
+			list.add(map);
+		}
+		ObjectMapper mapper = new ObjectMapper();
+		String data = mapper.writeValueAsString(list);
+		logger.info(data);
+		logger.info("xml Object::::" + new ObjectToXml().executeObject());
+		return data;
+	}
 
+	@RequestMapping(value="productsData", method=RequestMethod.DELETE, name="delete")
+	public @ResponseBody String deleteCtrl(@PathVariable("id") int id) {
+		logger.info("id::::" + id);
+		
+		return "delete success - " + id;
+	}
 }
