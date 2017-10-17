@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.angularstudy.spring.services.ObjectToXml;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -138,10 +140,10 @@ public class ProductDataController {
 		return data;
 	}
 
-	@RequestMapping(value="productsData", method=RequestMethod.DELETE, name="delete")
-	public @ResponseBody String deleteCtrl(@PathVariable("id") int id) {
-		logger.info("id::::" + id);
+	@RequestMapping(value="productsData{(a-z|A-Z|0-9)*}", method=RequestMethod.DELETE, name="delete")
+	public @ResponseBody String deleteCtrl(HttpServletRequest request) {
+		logger.info("id::::" + request.getRequestURL().toString());
 		
-		return "delete success - " + id;
+		return "delete success - " + request.getRequestURL().toString();
 	}
 }

@@ -16,7 +16,7 @@ app.controller('defaultCtrl', function($scope, $http, baseUrl) {
 	$scope.deleteProduct = function(product) {
 		$http({
 			method: 'DELETE',
-			url: baseUrl + '?id=' + product.id
+			url: baseUrl + product.id
 		}).then(function(msgObj) {
 			console.log(msgObj);
 			$scope.products.splice($scope.products.indexOf(product), 1);
