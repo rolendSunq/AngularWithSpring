@@ -15,19 +15,16 @@
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular-sanitize.min.js"></script>
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular-touch.min.js"></script>
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular-animate.min.js"></script>
-		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/services/customServicesByProvider.js"></script>
-		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/directive/chapter18-5Directive.js"></script>
-		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/controllers/chapter18-7Controller.js"></script>
+		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/controllers/chapter21-1Controller.js"></script>
 		<link href="<c:out value="${myContextPath}"/>/resources/angularjs/bootstrap.css" rel="stylesheet" />
 	    <link href="<c:out value="${myContextPath}"/>/resources/angularjs/bootstrap-theme.css" rel="stylesheet" />
-		<title>Chapter 18-11</title>
+		<title>Chapter 21-1</title>
 	</head>
 	<body ng-controller="defaultCtrl">
-		<div class="well">
-			<div class="btn-group" tri-button counter="data.totalClicks" source="data.cities">
-				<button class="btn btn-default" ng-repeat="city in data.cities">{{city}}</button>
-			</div>
-			<h5>Total Clicks:{{data.totalClicks}}</h5>
+		<div class="panel panel-primary">
+			<h3 class="panel-heading">Products</h3>
+			<ng-include src="tableView.html" ng-show="displayMode == 'list'"></ng-include>
+			<ng-include src="editorView.html" ng-show="displayMode == 'edit'"></ng-include>
 		</div>
 	</body>
 </html>

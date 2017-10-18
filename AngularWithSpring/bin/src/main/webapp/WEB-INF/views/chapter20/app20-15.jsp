@@ -15,19 +15,26 @@
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular-sanitize.min.js"></script>
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular-touch.min.js"></script>
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular-animate.min.js"></script>
-		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/services/customServicesByProvider.js"></script>
-		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/directive/chapter18-5Directive.js"></script>
-		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/controllers/chapter18-7Controller.js"></script>
+		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/controllers/chapter20-11Controller.js"></script>
+		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/directive/chapter20-15Directive.js"></script>
 		<link href="<c:out value="${myContextPath}"/>/resources/angularjs/bootstrap.css" rel="stylesheet" />
 	    <link href="<c:out value="${myContextPath}"/>/resources/angularjs/bootstrap-theme.css" rel="stylesheet" />
-		<title>Chapter 18-11</title>
+		<title>Chapter 20-15</title>
 	</head>
 	<body ng-controller="defaultCtrl">
-		<div class="well">
-			<div class="btn-group" tri-button counter="data.totalClicks" source="data.cities">
-				<button class="btn btn-default" ng-repeat="city in data.cities">{{city}}</button>
+		<div class="btn-group" promise-worker>
+			<div class="btn-group">
+				<button class="btn btn-primary" data-group="0">Heads</button>
+				<button class="btn btn-primary" data-group="0">Tails</button>
+				<button class="btn btn-primary" data-group="0">Abort</button>
 			</div>
-			<h5>Total Clicks:{{data.totalClicks}}</h5>
+			<div class="btn-group">
+				<button class="btn btn-primary" data-group="1">Yes</button>
+				<button class="btn btn-primary" data-group="1">No</button>
+				<button class="btn btn-primary" data-group="1">Abort</button>
+			</div>
+			<label>Outcome: </label>
+			<span promise-observer></span>
 		</div>
 	</body>
 </html>

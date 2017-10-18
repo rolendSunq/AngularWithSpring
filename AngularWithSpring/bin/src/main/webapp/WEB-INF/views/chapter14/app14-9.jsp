@@ -23,14 +23,14 @@
 			</div>
 			<div class="panel-body">
 				<table class="table table-striped table-bordered table-condensed">
-					<head>
+					<thead>
 						<tr>
 							<td>Name</td>
 							<td>Category</td>
 							<td>Expiry</td>
 							<td class="text-right">Price</td>
 						</tr>
-					</head>
+					</thead>
 					<tbody>
 						<tr ng-repeat="p in products | limitTo:limitVal">
 							<td>{{p.name | uppercase}}</td>
