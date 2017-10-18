@@ -103,12 +103,12 @@ public class ProductDataController {
 		logger.info("xml Object::::" + new ObjectToXml().executeObject());
 		return data;
 	}
-	
+
 	@RequestMapping("productsData")
 	public @ResponseBody String getProductsDataCtrl(Model model) throws Exception{
 		List<Map<String, Object>> list = new ArrayList<>();
 		Map<String, Object> map;
-		
+
 		for (int i = 0; i < 3; i++) {
 			map = new HashMap<>();
 			switch (i) {
@@ -140,10 +140,10 @@ public class ProductDataController {
 		return data;
 	}
 
-	@RequestMapping(value="productsData{(a-z|A-Z|0-9)*}", method=RequestMethod.DELETE, name="delete")
-	public @ResponseBody String deleteCtrl(HttpServletRequest request) {
-		logger.info("id::::" + request.getRequestURL().toString());
-		
-		return "delete success - " + request.getRequestURL().toString();
+	@RequestMapping(value="productsData", method=RequestMethod.DELETE, name="delete")
+	public @ResponseBody String deleteCtrl(String id) {
+		logger.info("id::::" + id);
+
+		return "delete success - " + id;
 	}
 }
