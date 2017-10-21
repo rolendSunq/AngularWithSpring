@@ -15,18 +15,15 @@
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular-cookies.min.js"></script>
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular-touch.min.js"></script>
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular-animate.min.js"></script>
-		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/controllers/chapter19-18Controller.js"></script>
-		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/directive/chapter19-18Directive.js"></script>
+		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/controllers/chapter19-17Controller.js"></script>
 		<link href="<c:out value="${myContextPath}"/>/resources/angularjs/bootstrap.css" rel="stylesheet" />
 	    <link href="<c:out value="${myContextPath}"/>/resources/angularjs/bootstrap-theme.css" rel="stylesheet" />
-		<title>Chapter 19-18 DOM API Services</title>
+		<title>Chapter 19-17 Sanitize</title>
 	</head>
 	<body ng-controller="defaultCtrl">
 		<div class="well">
-			<p><input class="form-control" ng-model="expr" /></p>
-			<div>
-				Result: <span eval-expression="expr"></span>
-			</div>
+			<p><input class="form-control" ng-model="htmlData" /></p>
+			<p ng-bind-html="trustedData"></p>
 		</div>
 	</body>
 </html>

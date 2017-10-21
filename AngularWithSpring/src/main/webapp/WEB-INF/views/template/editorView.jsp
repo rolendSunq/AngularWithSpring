@@ -4,7 +4,7 @@
 		<input type="text" class="form-control" ng-model="currentProduct.name" />
 	</div>
 	<div class="form-group">
-		<label>Price: </label>
+		<label>Category: </label>
 		<input type="text" class="form-control" ng-model="currentProduct.category" />
 	</div>
 	<div class="form-group">

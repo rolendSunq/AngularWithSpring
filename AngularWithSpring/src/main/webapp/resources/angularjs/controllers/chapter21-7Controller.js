@@ -23,8 +23,11 @@ app.controller('defaultCtrl', function($scope, $http, baseUrl) {
 		});
 	};
 	$scope.createProduct = function(product) {
-		$scope.products.push(product);
-		$scope.displayMode = 'list';
+		console.log('product', product);
+		$http.post(baseUrl, product).then(function(newProduct) {
+			$scope.products.push(newProduct.data);
+			$scope.displayMode = 'list';
+		});
 	};
 	$scope.updataProduct = function(product) {
 		for (var i = 0; i < $scope.products.length; i++) {
