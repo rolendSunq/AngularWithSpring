@@ -23,8 +23,8 @@
 	<body ng-controller="defaultCtrl">
 		<div class="panel panel-primary">
 			<h3 class="panel-heading">Products</h3>
-			<ng-include src="tableView.html" ng-show="displayMode == 'list'"></ng-include>
-			<ng-include src="editorView.html" ng-show="displayMode == 'edit'"></ng-include>
+			<ng-include src="'template/tableView'" ng-show="displayMode == 'list'"></ng-include>
+			<ng-include src="'template/editorView'" ng-show="displayMode == 'edit'"></ng-include>
 		</div>
 	</body>
 </html>
