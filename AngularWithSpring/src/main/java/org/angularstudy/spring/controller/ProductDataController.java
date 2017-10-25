@@ -5,14 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
-import org.angularstudy.spring.services.ObjectToXml;
+import org.angularstudy.spring.dataobject.ProductVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -100,7 +98,6 @@ public class ProductDataController {
 		ObjectMapper mapper = new ObjectMapper();
 		String data = mapper.writeValueAsString(arrayList);
 		logger.info(data);
-		logger.info("xml Object::::" + new ObjectToXml().executeObject());
 		return data;
 	}
 
@@ -113,13 +110,13 @@ public class ProductDataController {
 			map = new HashMap<>();
 			switch (i) {
 			case 0:
-				map.put("id", 0);
+				map.put("id", 1);
 				map.put("name", "Dummy1");
 				map.put("category", "Test");
 				map.put("price", 1.25);
 				break;
 			case 1:
-				map.put("id", 1);
+				map.put("id", 2);
 				map.put("name", "Dummy2");
 				map.put("category", "Test");
 				map.put("price", 2.45);
@@ -136,14 +133,54 @@ public class ProductDataController {
 		ObjectMapper mapper = new ObjectMapper();
 		String data = mapper.writeValueAsString(list);
 		logger.info(data);
-		logger.info("xml Object::::" + new ObjectToXml().executeObject());
 		return data;
 	}
 
 	@RequestMapping(value="productsData", method=RequestMethod.DELETE, name="delete")
-	public @ResponseBody String deleteCtrl(String id) {
+	public @ResponseBody String deleteCtrl(String id) throws Exception{
 		logger.info("id::::" + id);
 
-		return "delete success - " + id;
+		Map<String, Object> map = new HashMap<>();
+		map.put("message", "delete success");
+		map.put("id", id);
+		ObjectMapper mapper = new ObjectMapper();
+		String data = mapper.writeValueAsString(map);
+		logger.info(data);
+		return data;
+	}
+
+	@RequestMapping(value="productsData", method=RequestMethod.POST, name="post Method")
+	public @ResponseBody String getPostMethodCtrl(@RequestBody ProductVO productVO) throws Exception{
+		logger.info("productInfo\r\n" + productVO.toString());
+		ObjectMapper mapper = new ObjectMapper();
+		String data = mapper.writeValueAsString(productVO);
+		return data;
+	}
+
+	@RequestMapping(value="productsData/{[d]+}", method=RequestMethod.POST, name="post Method")
+	public @ResponseBody String getPostCtrl(@RequestBody ProductVO productVO) throws Exception{
+		logger.info("productInfo\r\n" + productVO.toString());
+		ObjectMapper mapper = new ObjectMapper();
+		String data = mapper.writeValueAsString(productVO);
+		return data;
+	}
+
+	@RequestMapping(value="productsData", method=RequestMethod.PUT, name="put Method")
+	public @ResponseBody String getPutMethodCtrl(@RequestBody ProductVO productVO) throws Exception{
+		logger.info("ProductVOInfo\r\n" + productVO);
+		List<ProductVO> list = new ArrayList<>();
+		list.add(new ProductVO(1, "Dummy1", "Test", 1.25));
+		list.add(new ProductVO(2, "Dummy2", "Test", 2.45));
+		list.add(new ProductVO(3, "Dummy3", "Test", 4.25));
+		for (ProductVO vo : list) {
+			if (vo.getId() == productVO.getId()) {
+				vo.setName(productVO.getName());
+				vo.setCategory(productVO.getCategory());
+				vo.setPrice(productVO.getPrice());
+			}
+		}
+		logger.info(list.toString());
+		ObjectMapper mapper = new ObjectMapper();
+		return mapper.writeValueAsString(list);
 	}
 }
