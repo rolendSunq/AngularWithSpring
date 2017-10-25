@@ -2,16 +2,16 @@
  * 
  */
 var app = angular.module('exampleApp', []);
-app.controller('defaultCtrl', function($scope) {
+app.constant('baseUrl', 'productsData');
+app.controller('defaultCtrl', function($scope, $http, baseUrl) {
 	$scope.displayMode = 'list';
 	$scope.currentProduct = null;
-	$scope.listProduct = null;
+	
 	$scope.listProducts = function() {
-		$scope.products = [
-			{id: 0, name: 'Dummmy1', category: 'Test', price: 1.25},
-			{id: 1, name: 'Dummmy2', category: 'Test', price: 2.45},
-			{id: 0, name: 'Dummmy3', category: 'Test', price: 4.25}
-		];
+		$http.get(baseUrl).then(function(responseData) {
+			console.log(responseData.data);
+			$scope.products = responseData.data;
+		});
 	};
 	$scope.deleteProduct = function(product) {
 		$scope.products.splice($scope.products.indexOf(product), 1);
@@ -39,5 +39,11 @@ app.controller('defaultCtrl', function($scope) {
 		} else {
 			$scope.createProduct(product);
 		}
-	}
+	};
+	$scope.cancelEdit = function() {
+		$scope.currentProduct = {};
+		$scope.displayMode = 'list';
+	};
+	$scope.listProducts();
+	console.log('displayMode', $scope.displayMode);
 });

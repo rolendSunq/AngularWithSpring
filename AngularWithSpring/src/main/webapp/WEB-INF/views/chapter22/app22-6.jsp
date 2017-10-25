@@ -9,24 +9,24 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
    		<link href="<c:out value="${myContextPath}"/>/resources/angularjs/docs/favicon.ico" rel="shortcut icon">
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular.js"></script>
-		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular-sanitize.min.js"></script>
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular-resource.min.js"></script>
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular-route.min.js"></script>
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular-cookies.min.js"></script>
+		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular-sanitize.min.js"></script>
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular-touch.min.js"></script>
 		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/angular-animate.min.js"></script>
-		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/controllers/chapter19-18Controller.js"></script>
-		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/directive/chapter19-18Directive.js"></script>
+		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/controllers/chapter22-6Controller.js"></script>
+		<script type="text/javascript" src="<c:out value="${myContextPath}"/>/resources/angularjs/directive/chapter21-9Directive.js"></script>
 		<link href="<c:out value="${myContextPath}"/>/resources/angularjs/bootstrap.css" rel="stylesheet" />
 	    <link href="<c:out value="${myContextPath}"/>/resources/angularjs/bootstrap-theme.css" rel="stylesheet" />
-		<title>Chapter 19-18 DOM API Services</title>
+		<title>Chapter 22-4</title>
 	</head>
 	<body ng-controller="defaultCtrl">
-		<div class="well">
-			<p><input class="form-control" ng-model="expr" /></p>
-			<div>
-				Result: <span eval-expression="expr"></span>
-			</div>
+		<div class="panel panel-primary">
+			<h3 class="panel-heading">Products</h3>
+			<ng-include src="'template/tableView2'" ng-show="displayMode == 'list'"></ng-include>
+			<ng-include src="'template/editorView'" ng-show="displayMode == 'edit'"></ng-include>
+			<div ng-view></div>
 		</div>
 	</body>
 </html>
