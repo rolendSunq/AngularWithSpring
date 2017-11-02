@@ -2,7 +2,7 @@
  *
  */
 var app = angular.module('exampleApp', ['increment', 'ngResource', 'ngRoute']);
-app.constant('baseUrl', 'productsData');
+app.constant('baseUrl', '/angularjs/productsData');
 app.config(function ($routeProvider, $locationProvider) {
 	$locationProvider.html5Mode({enabled: true, requireBase: false});
 	$routeProvider.when('/list', {templateUrl: '/angularjs/template/tableView2'});
