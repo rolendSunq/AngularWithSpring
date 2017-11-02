@@ -136,10 +136,14 @@ public class ProductDataController {
 		return data;
 	}
 
-	@RequestMapping(value="productsData", method=RequestMethod.DELETE, name="delete")
-	public @ResponseBody String deleteCtrl(String id) {
+	@RequestMapping(value="productsData{0-9}", method=RequestMethod.DELETE, name="delete")
+	public @ResponseBody String deleteCtrl(String id) throws Exception{
 		logger.info("id::::" + id);
-
-		return "delete success - " + id;
+		Map<String, Object> jsonMap = new HashMap<>();
+		jsonMap.put("message", "delete success");
+		jsonMap.put("id", id);
+		ObjectMapper mapper = new ObjectMapper();
+		String data = mapper.writeValueAsString(jsonMap);
+		return data;
 	}
 }
