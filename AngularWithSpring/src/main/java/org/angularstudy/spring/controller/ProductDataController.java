@@ -146,4 +146,15 @@ public class ProductDataController {
 		String data = mapper.writeValueAsString(jsonMap);
 		return data;
 	}
+
+	@RequestMapping(value="productsData{0-9}", method=RequestMethod.GET, name="cancel")
+	public @ResponseBody String editCtrl(String id) throws Exception{
+		Map<String, Object> jsonMap = new HashMap<>();
+		jsonMap.put("message", "cancel success");
+		ObjectMapper mapper = new ObjectMapper();
+		String data = mapper.writeValueAsString(jsonMap);
+		return data;
+	}
+
+
 }
