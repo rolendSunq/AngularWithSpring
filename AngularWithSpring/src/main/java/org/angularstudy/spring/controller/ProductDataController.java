@@ -133,14 +133,28 @@ public class ProductDataController {
 		ObjectMapper mapper = new ObjectMapper();
 		String data = mapper.writeValueAsString(list);
 		logger.info(data);
-		logger.info("xml Object::::" + new ObjectToXml().executeObject());
 		return data;
 	}
 
-	@RequestMapping(value="productsData", method=RequestMethod.DELETE, name="delete")
-	public @ResponseBody String deleteCtrl(String id) {
+	@RequestMapping(value="productsData{0-9}", method=RequestMethod.DELETE, name="delete")
+	public @ResponseBody String deleteCtrl(String id) throws Exception{
 		logger.info("id::::" + id);
-
-		return "delete success - " + id;
+		Map<String, Object> jsonMap = new HashMap<>();
+		jsonMap.put("message", "delete success");
+		jsonMap.put("id", id);
+		ObjectMapper mapper = new ObjectMapper();
+		String data = mapper.writeValueAsString(jsonMap);
+		return data;
 	}
+
+	@RequestMapping(value="productsData{0-9}", method=RequestMethod.GET, name="cancel")
+	public @ResponseBody String editCtrl(String id) throws Exception{
+		Map<String, Object> jsonMap = new HashMap<>();
+		jsonMap.put("message", "cancel success");
+		ObjectMapper mapper = new ObjectMapper();
+		String data = mapper.writeValueAsString(jsonMap);
+		return data;
+	}
+
+
 }

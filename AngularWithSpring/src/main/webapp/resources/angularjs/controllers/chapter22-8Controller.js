@@ -2,13 +2,14 @@
  *
  */
 var app = angular.module('exampleApp', ['increment', 'ngResource', 'ngRoute']);
-app.constant('baseUrl', 'productsData');
+app.constant('baseUrl', '/angularjs/productsData');
 app.config(function ($routeProvider, $locationProvider) {
 	$locationProvider.html5Mode({enabled: true, requireBase: false});
-	$routeProvider.when('/list', {templateUrl: '/template/tableView2'});
-	$routeProvider.when('/edit', {templateUrl: '/template/editorView'});
+	$routeProvider.when('/list', {templateUrl: '/angularjs/template/tableView2'});
+	$routeProvider.when('/edit/:id', {templateUrl: '/angularjs/template/editorView'});
+	$routeProvider.when('/edit/:id/:data*', {templateUrl: '/template/editorView'});
 	$routeProvider.when('/create', {templateUrl: '/template/editorView'});
-	$routeProvider.otherwise({templateUrl: '/template/tableView2'});
+	$routeProvider.otherwise({templateUrl: '/angularjs/template/tableView2'});
 });
 app.controller('defaultCtrl', function($scope, $http, $resource, $location, baseUrl) {
 	$scope.currentProduct = null;

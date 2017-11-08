@@ -2,21 +2,32 @@
  *
  */
 var app = angular.module('exampleApp', ['increment', 'ngResource', 'ngRoute']);
-app.constant('baseUrl', 'productsData');
+app.constant('baseUrl', '/angularjs/productsData');
 app.config(function ($routeProvider, $locationProvider) {
 	$locationProvider.html5Mode({enabled: true, requireBase: false});
-	$routeProvider.when('/list', {templateUrl: '/template/tableView2'});
-	$routeProvider.when('/edit', {templateUrl: '/template/editorView'});
+	$routeProvider.when('/list', {templateUrl: '/angularjs/template/tableView2'});
+	$routeProvider.when('/edit/:id', {templateUrl: '/angularjs/template/editorView'});
+	$routeProvider.when('/edit/:id/:data*', {templateUrl: '/template/editorView'});
 	$routeProvider.when('/create', {templateUrl: '/template/editorView'});
-	$routeProvider.otherwise({templateUrl: '/template/tableView2'});
+	$routeProvider.otherwise({templateUrl: '/angularjs/template/tableView2'});
 });
-app.controller('defaultCtrl', function($scope, $http, $resource, $location, baseUrl) {
+app.controller('defaultCtrl', function($scope, $http, $resource, $location, $route, $routeParams, baseUrl) {
 	$scope.currentProduct = null;
-
+	$scope.$on('$routeChangeSuccess', function(){
+		if($location.path().indexOf('/edit/') == 0) {
+			var id = $routeParams['id'];
+			for (var i = 0; i < $scope.products.length; i++) {
+				if ($scope.products[i].id == id) {
+					$scope.currentProduct = $scope.products[i];
+					break;
+				}
+			}
+		}
+	});
 	$scope.productsResource = $resource(baseUrl + ':id', {id: '@id'}, {create: {method: 'POST'}, save: {method: 'PUT'}});
 	$scope.listProducts = function() {
 		$scope.products = $scope.productsResource.query();
-	}
+	};
 	$scope.deleteProduct = function(product) {
 		product.$delete().then(function() {
 			$scope.products.splice($scope.products.indexOf(product), 1);
