@@ -44,8 +44,8 @@
 	</bean>
 
 	<!-- component scan -->
-	<context:component-scan base-package="org.zerock"
-		use-default-filters="false">
+	<!-- 
+	<context:component-scan base-package="org.angularstudy.spring" use-default-filters="false">
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Service" />
 		<context:include-filter type="annotation"
@@ -53,6 +53,7 @@
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Component" />
 	</context:component-scan>
+	 -->
 
 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		<property name="messageConverters">
